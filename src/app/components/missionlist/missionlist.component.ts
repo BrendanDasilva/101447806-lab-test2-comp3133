@@ -26,6 +26,7 @@ export class MissionlistComponent implements OnInit {
   launches: Launch[] = [];
   filterTitle: string = 'All SpaceX Launches';
   noResults: boolean = false;
+  showBackToTop = false;
 
   constructor(private spacexService: SpacexService) {}
 
@@ -35,6 +36,12 @@ export class MissionlistComponent implements OnInit {
       this.noResults = data.length === 0;
       this.filterTitle = 'All SpaceX Launches';
     });
+
+    window.addEventListener('scroll', this.checkScrollPosition, true);
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('scroll', this.checkScrollPosition, true);
   }
 
   applyFilters(filters: any): void {
@@ -73,5 +80,13 @@ export class MissionlistComponent implements OnInit {
     }
 
     this.filterTitle = parts.join(' ');
+  }
+
+  checkScrollPosition = (): void => {
+    this.showBackToTop = window.pageYOffset > 800;
+  };
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

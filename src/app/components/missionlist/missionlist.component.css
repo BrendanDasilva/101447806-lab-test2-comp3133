@@ -10,3 +10,9 @@
 .filters {
   top: 125px;
 }
+
+.back-btn {
+  bottom: 30px;
+  right: 30px;
+  z-index: 1050;
+}

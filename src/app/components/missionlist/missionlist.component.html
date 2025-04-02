@@ -1,6 +1,6 @@
-<h1 class="text-center my-4 py-4 bg-dark text-light sticky-top">
-  {{ filterTitle }}
-</h1>
+<div class="bg-dark text-light sticky-top shadow text-center py-4">
+  <h1 class="mb-0">{{ filterTitle }}</h1>
+</div>
 
 <div *ngIf="noResults" class="alert alert-warning text-center" role="alert">
   No launches found matching the selected filters.
@@ -89,3 +89,12 @@
     </div>
   </div>
 </div>
+<!-- Back to Top Button -->
+<button
+  class="btn btn-primary position-fixed back-btn"
+  title="Back to Top"
+  *ngIf="showBackToTop"
+  (click)="scrollToTop()"
+>
+  ↑ Top
+</button>

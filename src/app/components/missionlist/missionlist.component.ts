@@ -24,12 +24,16 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class MissionlistComponent implements OnInit {
   launches: Launch[] = [];
+  filterTitle: string = 'All SpaceX Launches';
+  noResults: boolean = false;
 
   constructor(private spacexService: SpacexService) {}
 
   ngOnInit(): void {
     this.spacexService.getAllLaunches().subscribe((data: Launch[]) => {
       this.launches = data;
+      this.noResults = data.length === 0;
+      this.filterTitle = 'All SpaceX Launches';
     });
   }
 
@@ -38,6 +42,36 @@ export class MissionlistComponent implements OnInit {
       .getFilteredLaunches(filters)
       .subscribe((data: Launch[]) => {
         this.launches = data;
+        this.noResults = data.length === 0;
+        this.updateFilterTitle(filters);
       });
+  }
+
+  updateFilterTitle(filters: any): void {
+    const parts: string[] = ['All SpaceX Launches'];
+
+    if (filters.launch_year) {
+      parts.push(`- ${filters.launch_year}`);
+    }
+
+    if (
+      filters.launch_success === true ||
+      filters.launch_success === false ||
+      filters.launch_success === 'True' ||
+      filters.launch_success === 'False'
+    ) {
+      parts.push(`- Successful Launch - ${filters.launch_success}`);
+    }
+
+    if (
+      filters.land_success === true ||
+      filters.land_success === false ||
+      filters.land_success === 'True' ||
+      filters.land_success === 'False'
+    ) {
+      parts.push(`- Successful Land - ${filters.land_success}`);
+    }
+
+    this.filterTitle = parts.join(' ');
   }
 }

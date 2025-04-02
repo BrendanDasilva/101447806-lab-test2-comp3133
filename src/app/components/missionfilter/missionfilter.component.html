@@ -3,8 +3,8 @@
   <div class="row row-cols-2 g-2 mb-3">
     <div class="col" *ngFor="let year of years">
       <button
-        class="btn btn-success btn-sm w-100 py-1"
-        [class.active]="selectedYear === year"
+        class="btn btn-success btn-sm w-100 py-1 filter-button"
+        [ngClass]="{ selected: selectedYear === year }"
         (click)="selectedYear = year; updateFilters()"
       >
         {{ year }}
@@ -18,13 +18,15 @@
     <h6>Successful Launch</h6>
     <div class="d-flex justify-content-center gap-2 flex-wrap">
       <button
-        class="btn btn-success btn-sm px-3 py-1"
+        class="btn btn-success btn-sm px-3 py-1 filter-button"
+        [ngClass]="{ selected: successfulLaunch === 'true' }"
         (click)="successfulLaunch = 'true'; updateFilters()"
       >
         True
       </button>
       <button
-        class="btn btn-success btn-sm px-3 py-1"
+        class="btn btn-success btn-sm px-3 py-1 filter-button"
+        [ngClass]="{ selected: successfulLaunch === 'false' }"
         (click)="successfulLaunch = 'false'; updateFilters()"
       >
         False
@@ -38,13 +40,15 @@
     <h6>Successful Land</h6>
     <div class="d-flex justify-content-center gap-2 flex-wrap">
       <button
-        class="btn btn-success btn-sm px-3 py-1"
+        class="btn btn-success btn-sm px-3 py-1 filter-button"
+        [ngClass]="{ selected: successfulLand === 'true' }"
         (click)="successfulLand = 'true'; updateFilters()"
       >
         True
       </button>
       <button
-        class="btn btn-success btn-sm px-3 py-1"
+        class="btn btn-success btn-sm px-3 py-1 filter-button"
+        [ngClass]="{ selected: successfulLand === 'false' }"
         (click)="successfulLand = 'false'; updateFilters()"
       >
         False

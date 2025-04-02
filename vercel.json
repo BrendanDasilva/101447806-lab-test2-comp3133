@@ -1,11 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "angular.json",
-      "use": "@vercel/angular"
-    }
-  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/101447806-lab-test2-comp3133",
   "routes": [
     {
       "src": "/(.*)",

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SpacexService } from '../../services/spacex.service';
 import { MissionfilterComponent } from '../missionfilter/missionfilter.component';
+import { Launch } from '../../models/launch.interface';
 
 @Component({
   selector: 'app-missionlist',
@@ -12,19 +13,21 @@ import { MissionfilterComponent } from '../missionfilter/missionfilter.component
   styleUrls: ['./missionlist.component.css'],
 })
 export class MissionlistComponent implements OnInit {
-  launches: any[] = [];
+  launches: Launch[] = [];
 
   constructor(private spacexService: SpacexService) {}
 
   ngOnInit(): void {
-    this.spacexService.getAllLaunches().subscribe((data) => {
+    this.spacexService.getAllLaunches().subscribe((data: Launch[]) => {
       this.launches = data;
     });
   }
 
   applyFilters(filters: any): void {
-    this.spacexService.getFilteredLaunches(filters).subscribe((data) => {
-      this.launches = data;
-    });
+    this.spacexService
+      .getFilteredLaunches(filters)
+      .subscribe((data: Launch[]) => {
+        this.launches = data;
+      });
   }
 }

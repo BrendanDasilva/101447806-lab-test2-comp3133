@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SpacexService } from '../../services/spacex.service';
+import { Launch } from '../../models/launch.interface';
 
 @Component({
   selector: 'app-missiondetails',
@@ -12,7 +12,7 @@ import { SpacexService } from '../../services/spacex.service';
   styleUrls: ['./missiondetails.component.css'],
 })
 export class MissiondetailsComponent implements OnInit {
-  mission: any;
+  mission!: Launch;
 
   constructor(
     private router: Router,
@@ -22,9 +22,11 @@ export class MissiondetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const flightNumber = this.route.snapshot.paramMap.get('id');
-    this.spacexService.getMissionDetails(flightNumber!).subscribe((data) => {
-      this.mission = data;
-    });
+    if (flightNumber) {
+      this.spacexService.getMissionDetails(flightNumber).subscribe((data) => {
+        this.mission = data;
+      });
+    }
   }
 
   goBack(): void {

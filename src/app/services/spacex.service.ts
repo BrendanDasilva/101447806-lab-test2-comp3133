@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Launch } from '../models/launch.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +11,11 @@ export class SpacexService {
 
   constructor(private http: HttpClient) {}
 
-  getAllLaunches(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getAllLaunches(): Observable<Launch[]> {
+    return this.http.get<Launch[]>(this.apiUrl);
   }
 
-  getFilteredLaunches(params: any): Observable<any[]> {
+  getFilteredLaunches(params: any): Observable<Launch[]> {
     const query = new URLSearchParams();
 
     if (params.launch_year) query.append('launch_year', params.launch_year);
@@ -23,10 +24,10 @@ export class SpacexService {
     if (params.land_success) query.append('land_success', params.land_success);
 
     const url = `${this.apiUrl}?${query.toString()}`;
-    return this.http.get<any[]>(url);
+    return this.http.get<Launch[]>(url);
   }
 
-  getMissionDetails(id: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  getMissionDetails(id: string): Observable<Launch> {
+    return this.http.get<Launch>(`${this.apiUrl}/${id}`);
   }
 }

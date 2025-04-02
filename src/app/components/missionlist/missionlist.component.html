@@ -1,4 +1,6 @@
-<h1 class="text-center my-4 py-4 bg-dark text-light">{{ filterTitle }}</h1>
+<h1 class="text-center my-4 py-4 bg-dark text-light sticky-top">
+  {{ filterTitle }}
+</h1>
 
 <div *ngIf="noResults" class="alert alert-warning text-center" role="alert">
   No launches found matching the selected filters.

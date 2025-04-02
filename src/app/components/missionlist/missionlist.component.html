@@ -21,14 +21,17 @@
             [routerLink]="['/mission', mission.flight_number]"
             class="text-decoration-none text-dark"
           >
-            <div class="card h-100 shadow-sm text-center hover-zoom">
+            <div
+              class="card h-100 shadow-sm text-center hover-zoom d-flex flex-column"
+            >
               <img
                 [src]="mission.links.mission_patch_small"
                 alt="Mission Patch"
                 class="card-img-top p-3"
                 style="max-height: 200px; object-fit: contain"
               />
-              <div class="card-body text-start">
+
+              <div class="card-body text-start flex-grow-1 d-flex flex-column">
                 <h5 class="card-title mb-4">{{ mission.mission_name }}</h5>
                 <p class="mb-1">
                   <strong>Rocket:</strong> {{ mission.rocket.rocket_name }} ({{
@@ -45,32 +48,35 @@
                   <strong>Details:</strong>
                   {{ mission.details || "No details available." }}
                 </p>
-                <div class="d-flex gap-2 mt-3 flex-wrap">
-                  <a
-                    *ngIf="mission.links.article_link"
-                    [href]="mission.links.article_link"
-                    target="_blank"
-                    class="btn btn-outline-secondary btn-sm"
-                  >
-                    Article
-                  </a>
-                  <a
-                    *ngIf="mission.links.wikipedia"
-                    [href]="mission.links.wikipedia"
-                    target="_blank"
-                    class="btn btn-outline-secondary btn-sm"
-                  >
-                    Wikipedia
-                  </a>
-                  <a
-                    *ngIf="mission.links.video_link"
-                    [href]="mission.links.video_link"
-                    target="_blank"
-                    class="btn btn-outline-secondary btn-sm"
-                  >
-                    Video
-                  </a>
-                </div>
+              </div>
+
+              <div
+                class="card-footer bg-white border-top-0 d-flex gap-2 justify-content-center flex-wrap"
+              >
+                <a
+                  *ngIf="mission.links.article_link"
+                  [href]="mission.links.article_link"
+                  target="_blank"
+                  class="btn btn-outline-secondary btn-sm"
+                >
+                  Article
+                </a>
+                <a
+                  *ngIf="mission.links.wikipedia"
+                  [href]="mission.links.wikipedia"
+                  target="_blank"
+                  class="btn btn-outline-secondary btn-sm"
+                >
+                  Wikipedia
+                </a>
+                <a
+                  *ngIf="mission.links.video_link"
+                  [href]="mission.links.video_link"
+                  target="_blank"
+                  class="btn btn-outline-secondary btn-sm"
+                >
+                  Video
+                </a>
               </div>
             </div>
           </a>

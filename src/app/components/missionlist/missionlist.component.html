@@ -1,3 +1,5 @@
+<h1 class="text-center my-4 py-4 bg-dark text-light">All SpaceX Launches</h1>
+
 <div class="container-fluid my-4">
   <div class="row">
     <!-- Filter -->
@@ -17,7 +19,7 @@
           >
             <div class="card h-100 shadow-sm text-center hover-zoom">
               <img
-                [src]="mission.links?.mission_patch_small"
+                [src]="mission.links.mission_patch_small"
                 alt="Mission Patch"
                 class="card-img-top p-3"
                 style="max-height: 200px; object-fit: contain"
@@ -25,8 +27,8 @@
               <div class="card-body text-start">
                 <h5 class="card-title mb-4">{{ mission.mission_name }}</h5>
                 <p class="mb-1">
-                  <strong>Rocket:</strong> {{ mission.rocket?.rocket_name }} ({{
-                    mission.rocket?.rocket_type
+                  <strong>Rocket:</strong> {{ mission.rocket.rocket_name }} ({{
+                    mission.rocket.rocket_type
                   }})
                 </p>
                 <p class="mb-1">
@@ -39,25 +41,31 @@
                   <strong>Details:</strong>
                   {{ mission.details || "No details available." }}
                 </p>
-                <div>
-                  <strong>Links:</strong>
-                  <ul class="list-unstyled mb-0">
-                    <li *ngIf="mission.links?.article_link">
-                      <a [href]="mission.links.article_link" target="_blank"
-                        >Article</a
-                      >
-                    </li>
-                    <li *ngIf="mission.links?.wikipedia">
-                      <a [href]="mission.links.wikipedia" target="_blank"
-                        >Wikipedia</a
-                      >
-                    </li>
-                    <li *ngIf="mission.links?.video_link">
-                      <a [href]="mission.links.video_link" target="_blank"
-                        >Video</a
-                      >
-                    </li>
-                  </ul>
+                <div class="d-flex gap-2 mt-3 flex-wrap">
+                  <a
+                    *ngIf="mission.links.article_link"
+                    [href]="mission.links.article_link"
+                    target="_blank"
+                    class="btn btn-outline-secondary btn-sm"
+                  >
+                    Article
+                  </a>
+                  <a
+                    *ngIf="mission.links.wikipedia"
+                    [href]="mission.links.wikipedia"
+                    target="_blank"
+                    class="btn btn-outline-secondary btn-sm"
+                  >
+                    Wikipedia
+                  </a>
+                  <a
+                    *ngIf="mission.links.video_link"
+                    [href]="mission.links.video_link"
+                    target="_blank"
+                    class="btn btn-outline-secondary btn-sm"
+                  >
+                    Video
+                  </a>
                 </div>
               </div>
             </div>

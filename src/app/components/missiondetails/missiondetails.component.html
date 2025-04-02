@@ -9,7 +9,7 @@
   <div class="row bg-light rounded p-4 mt-3 shadow-sm" *ngIf="mission">
     <div class="col-md-4 text-center">
       <img
-        [src]="mission.links?.mission_patch_small"
+        [src]="mission.links.mission_patch_small"
         class="img-fluid"
         style="max-height: 250px"
         alt="Mission Patch"
@@ -22,11 +22,11 @@
       <p><strong>Launch Year:</strong> {{ mission.launch_year }}</p>
 
       <h5 class="text-danger">Rocket</h5>
-      <p><strong>Name:</strong> {{ mission.rocket?.rocket_name }}</p>
-      <p><strong>Type:</strong> {{ mission.rocket?.rocket_type }}</p>
+      <p><strong>Name:</strong> {{ mission.rocket.rocket_name }}</p>
+      <p><strong>Type:</strong> {{ mission.rocket.rocket_type }}</p>
 
       <h5 class="text-danger">Launch Site</h5>
-      <p><strong>Name:</strong> {{ mission.launch_site?.site_name_long }}</p>
+      <p><strong>Name:</strong> {{ mission.launch_site.site_name_long }}</p>
 
       <h5 class="text-danger">Launch Details</h5>
       <p>{{ mission.details || "No details available." }}</p>

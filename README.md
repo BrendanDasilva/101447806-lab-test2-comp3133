@@ -2,6 +2,10 @@
 
 This is a full-stack Angular application that displays SpaceX mission launches using the official [SpaceX REST API](https://github.com/r-spacex/SpaceX-API). Users can browse all launches, filter them by criteria, and view detailed information for each mission.
 
+## 🚀 Live Demo
+
+You can view the deployed site here: [https://101447806-lab-test2-comp3133.vercel.app/](https://101447806-lab-test2-comp3133.vercel.app/)
+
 ---
 
 ## 📸 Features
@@ -118,7 +122,29 @@ Used `MatToolbar` from Angular Material to fulfill the design enhancement requir
 
 ## 📸 Screenshots
 
-> Add screenshots here or link to them in your report or portfolio
+Below are some screenshots of the application in action:
+
+### 🛰️ Mission List Page
+
+![Mission List](./screenshots/missionlist.png)
+
+### 🔍 Mission Details Page
+
+![Mission Details](./screenshots/missiondetails.png)
+
+### 🎯 Filter Examples
+
+**Year Filter**
+![Year Filter](./screenshots/missionfilter1.png)
+
+**Successful Launch Filter**
+![Successful Launch Filter](./screenshots/missionfilter2.png)
+
+**Successful Land Filter**
+![Successful Land Filter](./screenshots/missionfilter3.png)
+
+**No Matching Results**
+![No Match Found](./screenshots/missionfilter-nomatch.png)
 
 ---
 

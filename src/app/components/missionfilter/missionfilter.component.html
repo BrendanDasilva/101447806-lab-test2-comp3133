@@ -1,0 +1,65 @@
+<div class="p-3 bg-light rounded shadow-sm">
+  <h5 class="text-center">Launch Year</h5>
+  <div class="row row-cols-2 g-2 mb-3">
+    <div class="col" *ngFor="let year of years">
+      <button
+        class="btn btn-success btn-sm w-100 py-1"
+        [class.active]="selectedYear === year"
+        (click)="selectedYear = year; updateFilters()"
+      >
+        {{ year }}
+      </button>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="text-center mb-3">
+    <h6>Successful Launch</h6>
+    <div class="d-flex justify-content-center gap-2 flex-wrap">
+      <button
+        class="btn btn-success btn-sm px-3 py-1"
+        (click)="successfulLaunch = 'true'; updateFilters()"
+      >
+        True
+      </button>
+      <button
+        class="btn btn-success btn-sm px-3 py-1"
+        (click)="successfulLaunch = 'false'; updateFilters()"
+      >
+        False
+      </button>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="text-center mb-3">
+    <h6>Successful Land</h6>
+    <div class="d-flex justify-content-center gap-2 flex-wrap">
+      <button
+        class="btn btn-success btn-sm px-3 py-1"
+        (click)="successfulLand = 'true'; updateFilters()"
+      >
+        True
+      </button>
+      <button
+        class="btn btn-success btn-sm px-3 py-1"
+        (click)="successfulLand = 'false'; updateFilters()"
+      >
+        False
+      </button>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="text-center">
+    <button
+      class="btn btn-outline-danger btn-sm w-100 py-1 mt-2"
+      (click)="resetFilters()"
+    >
+      Reset Filters
+    </button>
+  </div>
+</div>

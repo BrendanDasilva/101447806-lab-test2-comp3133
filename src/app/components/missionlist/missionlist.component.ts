@@ -71,28 +71,35 @@ export class MissionlistComponent implements OnInit {
   updateFilterTitle(filters: any): void {
     const parts: string[] = ['All SpaceX Launches'];
 
-    // Add year if selected
     if (filters.launch_year) {
       parts.push(`- ${filters.launch_year}`);
     }
 
-    // Add launch success status if selected
-    if (
+    const launchSuccess =
       filters.launch_success === true ||
+      filters.launch_success === 'true' ||
+      filters.launch_success === 'True';
+
+    const launchFailure =
       filters.launch_success === false ||
-      filters.launch_success === 'True' ||
-      filters.launch_success === 'False'
-    ) {
+      filters.launch_success === 'false' ||
+      filters.launch_success === 'False';
+
+    if (launchSuccess || launchFailure) {
       parts.push(`- Successful Launch - ${filters.launch_success}`);
     }
 
-    // Add land success status if selected
-    if (
+    const landSuccess =
       filters.land_success === true ||
+      filters.land_success === 'true' ||
+      filters.land_success === 'True';
+
+    const landFailure =
       filters.land_success === false ||
-      filters.land_success === 'True' ||
-      filters.land_success === 'False'
-    ) {
+      filters.land_success === 'false' ||
+      filters.land_success === 'False';
+
+    if (landSuccess || landFailure) {
       parts.push(`- Successful Land - ${filters.land_success}`);
     }
 

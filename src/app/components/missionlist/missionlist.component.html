@@ -8,9 +8,11 @@
   <div class="row">
     <!-- Filter -->
     <div class="col-md-3">
-      <app-missionfilter
-        (filtersChanged)="applyFilters($event)"
-      ></app-missionfilter>
+      <div class="position-sticky filters">
+        <app-missionfilter
+          (filtersChanged)="applyFilters($event)"
+        ></app-missionfilter>
+      </div>
     </div>
 
     <!-- Mission Grid -->

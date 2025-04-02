@@ -1,13 +1,18 @@
+<!-- Main container with top/bottom spacing -->
 <div class="container my-4 py-4">
+  <!-- Header section: title and back button -->
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h2 class="mb-0">SpaceX Mission Details</h2>
+
+    <!-- Back button triggers goBack() method to return to mission list -->
     <button class="btn btn-outline-primary" (click)="goBack()">
       ← Back to Mission List
     </button>
   </div>
 
+  <!-- Mission content shown only if data is loaded -->
   <div class="row bg-light border rounded p-4 mt-5 shadow-sm" *ngIf="mission">
-    <!-- Patch: Centered vertically with spacing on mobile -->
+    <!-- Mission patch image column (centered vertically and padded for spacing on mobile) -->
     <div
       class="col-md-4 d-flex justify-content-center align-items-center mb-4 mb-md-0"
     >
@@ -19,21 +24,29 @@
       />
     </div>
 
+    <!-- Textual details column -->
     <div class="col-md-8">
+      <!-- Mission name -->
       <h4 class="text-danger">Mission - {{ mission.mission_name }}</h4>
+
+      <!-- General info -->
       <p><strong>Name:</strong> {{ mission.mission_name }}</p>
       <p><strong>Launch Year:</strong> {{ mission.launch_year }}</p>
 
+      <!-- Rocket info -->
       <h5 class="text-danger">Rocket</h5>
       <p><strong>Name:</strong> {{ mission.rocket.rocket_name }}</p>
       <p><strong>Type:</strong> {{ mission.rocket.rocket_type }}</p>
 
+      <!-- Launch site info -->
       <h5 class="text-danger">Launch Site</h5>
       <p><strong>Name:</strong> {{ mission.launch_site.site_name_long }}</p>
 
+      <!-- Launch description -->
       <h5 class="text-danger">Launch Details</h5>
       <p>{{ mission.details || "No details available." }}</p>
 
+      <!-- External resource links: article, Wikipedia, video -->
       <h5 class="text-danger">More Info on Launch Details</h5>
       <div class="d-flex gap-3 flex-wrap">
         <a
@@ -43,6 +56,7 @@
           class="btn btn-outline-secondary btn-sm"
           >Article</a
         >
+
         <a
           *ngIf="mission.links?.wikipedia"
           [href]="mission.links.wikipedia"
@@ -50,6 +64,7 @@
           class="btn btn-outline-secondary btn-sm"
           >Wikipedia</a
         >
+
         <a
           *ngIf="mission.links?.video_link"
           [href]="mission.links.video_link"

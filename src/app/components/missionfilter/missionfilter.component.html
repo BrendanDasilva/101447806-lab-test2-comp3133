@@ -1,6 +1,9 @@
+<!-- Filter panel container with padding, background, border, and shadow -->
 <div class="p-3 bg-light border rounded shadow-sm">
+  <!-- Launch Year Filter -->
   <h5 class="text-center">Launch Year</h5>
   <div class="row row-cols-2 g-2 mb-3">
+    <!-- Generate a button for each year -->
     <div class="col" *ngFor="let year of years">
       <button
         class="btn btn-success btn-sm w-100 py-1 filter-button"
@@ -14,9 +17,11 @@
 
   <hr />
 
+  <!-- Successful Launch Filter -->
   <div class="text-center mb-3">
     <h6>Successful Launch</h6>
     <div class="d-flex justify-content-center gap-2 flex-wrap">
+      <!-- True Button -->
       <button
         class="btn btn-success btn-sm px-3 py-1 filter-button"
         [ngClass]="{ selected: successfulLaunch === 'true' }"
@@ -24,6 +29,8 @@
       >
         True
       </button>
+
+      <!-- False Button -->
       <button
         class="btn btn-success btn-sm px-3 py-1 filter-button"
         [ngClass]="{ selected: successfulLaunch === 'false' }"
@@ -36,9 +43,11 @@
 
   <hr />
 
+  <!-- Successful Land Filter -->
   <div class="text-center mb-3">
     <h6>Successful Land</h6>
     <div class="d-flex justify-content-center gap-2 flex-wrap">
+      <!-- True Button -->
       <button
         class="btn btn-success btn-sm px-3 py-1 filter-button"
         [ngClass]="{ selected: successfulLand === 'true' }"
@@ -46,6 +55,8 @@
       >
         True
       </button>
+
+      <!-- False Button -->
       <button
         class="btn btn-success btn-sm px-3 py-1 filter-button"
         [ngClass]="{ selected: successfulLand === 'false' }"
@@ -58,6 +69,7 @@
 
   <hr />
 
+  <!-- Reset Button to clear all filters -->
   <div class="text-center">
     <button
       class="btn btn-outline-danger btn-sm w-100 py-1 mt-2"

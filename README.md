@@ -1,59 +1,127 @@
-# 101447806LabTest2Comp3133
+# 🚀 SpaceX Launches Explorer
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
+This is a full-stack Angular application that displays SpaceX mission launches using the official [SpaceX REST API](https://github.com/r-spacex/SpaceX-API). Users can browse all launches, filter them by criteria, and view detailed information for each mission.
 
-## Development server
+---
 
-To start a local development server, run:
+## 📸 Features
+
+- View a list of all SpaceX launches (from 2006 onward)
+- Filter missions by:
+  - Launch year
+  - Successful launch
+  - Successful landing
+- Click on a mission card to view full mission details
+- Beautiful, responsive UI with custom design
+
+---
+
+## 🛠 Technologies Used
+
+| Tool                              | Purpose                                                          |
+| --------------------------------- | ---------------------------------------------------------------- |
+| **Angular (v16+)**                | Frontend framework                                               |
+| **TypeScript**                    | Static typing                                                    |
+| **Angular Standalone Components** | Simplified architecture                                          |
+| **Bootstrap 5**                   | UI layout and design system                                      |
+| **Angular Material**              | Integrated minimally for assignment requirements (e.g., Toolbar) |
+| **SpaceX REST API**               | Data source                                                      |
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+  └── app/
+      ├── components/
+      │   ├── missionlist/        # Lists all missions with filters
+      │   ├── missiondetails/     # Shows mission detail
+      │   └── missionfilter/      # Sidebar filter component
+      ├── services/
+      │   └── spacex.service.ts   # API calls
+      ├── models/
+      │   └── launch.interface.ts # Mission data structure
+      └── app.routes.ts           # Route definitions
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/your-username/spacex-launches-app.git
+cd spacex-launches-app
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the development server
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Then visit: [http://localhost:4200](http://localhost:4200)
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## ✅ Completed Assignment Tasks
 
-```bash
-ng generate component component-name
-```
+### ✔️ 1. Angular App Setup
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Initialized using standalone components, routing, and Angular CLI best practices.
 
-```bash
-ng generate --help
-```
+### ✔️ 2. Component Creation
 
-## Building
+Created `missionlist`, `missiondetails`, and `missionfilter` components using `ng generate`.
 
-To build the project run:
+### ✔️ 3. Mission List
 
-```bash
-ng build
-```
+Displays mission cards with image, name, rocket info, year, details, and links.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### ✔️ 4. Filtering
 
-## Running unit tests
+Sidebar filters to dynamically narrow down results using API query parameters.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### ✔️ 5. Mission Details Page
 
-```bash
-ng test
-```
+Click any mission to navigate to `/mission/:id` and display full details.
 
-## Running end-to-end tests
+### ✔️ 6. Service Integration
 
-For end-to-end (e2e) testing, run:
+All data is fetched from the public SpaceX API using a reusable Angular service.
 
-```bash
-ng e2e
-```
+### ✔️ 7. Interface/Type Structure
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Mission data is typed using a custom `Launch` interface in `launch.interface.ts`.
 
-## Additional Resources
+### ✔️ 8. Angular Material Integration
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Used `MatToolbar` from Angular Material to fulfill the design enhancement requirement. The rest of the UI was built using Bootstrap 5 for more custom control and flexibility.
+
+---
+
+## 📌 Notes
+
+- The project uses standalone components — no traditional `AppModule` file.
+- Bootstrap was chosen over Angular Material for its responsive grid system and visual polish.
+- All filtering and routing is handled via Angular's built-in `HttpClient` and `Router`.
+
+---
+
+## 📸 Screenshots
+
+> Add screenshots here or link to them in your report or portfolio
+
+---
+
+## 📄 License
+
+This project is for educational/demo purposes as part of COMP3133 Full Stack Development coursework.

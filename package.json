@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && cp -a dist/101447806-lab-test2-comp3133/browser/. dist/101447806-lab-test2-comp3133/ && rm -rf dist/101447806-lab-test2-comp3133/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

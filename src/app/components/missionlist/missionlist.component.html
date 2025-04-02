@@ -72,6 +72,7 @@
                   [href]="mission.links.article_link"
                   target="_blank"
                   class="btn btn-outline-secondary btn-sm"
+                  (click)="$event.stopPropagation()"
                 >
                   Article
                 </a>
@@ -80,6 +81,7 @@
                   [href]="mission.links.wikipedia"
                   target="_blank"
                   class="btn btn-outline-secondary btn-sm"
+                  (click)="$event.stopPropagation()"
                 >
                   Wikipedia
                 </a>
@@ -88,6 +90,7 @@
                   [href]="mission.links.video_link"
                   target="_blank"
                   class="btn btn-outline-secondary btn-sm"
+                  (click)="$event.stopPropagation()"
                 >
                   Video
                 </a>

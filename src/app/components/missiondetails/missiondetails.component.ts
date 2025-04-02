@@ -3,11 +3,14 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SpacexService } from '../../services/spacex.service';
 import { Launch } from '../../models/launch.interface';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-missiondetails',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatToolbarModule, MatButtonModule, MatCardModule],
   templateUrl: './missiondetails.component.html',
   styleUrls: ['./missiondetails.component.css'],
 })

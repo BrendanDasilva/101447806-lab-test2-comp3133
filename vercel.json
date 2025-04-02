@@ -4,6 +4,10 @@
   "outputDirectory": "dist/101447806-lab-test2-comp3133",
   "routes": [
     {
+      "src": "/(.*\\.(js|css|woff2?|ttf|eot|svg|png|jpg|ico))",
+      "dest": "/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }

@@ -25,4 +25,8 @@ export class SpacexService {
     const url = `${this.apiUrl}?${query.toString()}`;
     return this.http.get<any[]>(url);
   }
+
+  getMissionDetails(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
 }

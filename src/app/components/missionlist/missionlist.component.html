@@ -9,57 +9,59 @@
 
     <!-- Mission Grid -->
     <div class="col-md-9">
-      <div class="row">
-        <div
-          class="col-xl-4 col-md-6 col-12 mb-4"
-          *ngFor="let mission of launches"
-        >
-          <div class="card h-100 shadow-sm text-center">
-            <img
-              [src]="mission.links?.mission_patch_small"
-              alt="Mission Patch"
-              class="card-img-top p-3"
-              style="max-height: 200px; object-fit: contain"
-            />
-            <div class="card-body text-start">
-              <h5 class="card-title mb-4">{{ mission.mission_name }}</h5>
-              <p class="mb-1">
-                <strong>Rocket:</strong> {{ mission.rocket?.rocket_name }} ({{
-                  mission.rocket?.rocket_type
-                }})
-              </p>
-              <p class="mb-1">
-                <strong>Flight #:</strong> {{ mission.flight_number }}
-              </p>
-              <p class="mb-1">
-                <strong>Year:</strong> {{ mission.launch_year }}
-              </p>
-              <p class="mb-2">
-                <strong>Details:</strong>
-                {{ mission.details || "No details available." }}
-              </p>
-              <div>
-                <strong>Links:</strong>
-                <ul class="list-unstyled mb-0">
-                  <li *ngIf="mission.links?.article_link">
-                    <a [href]="mission.links.article_link" target="_blank"
-                      >Article</a
-                    >
-                  </li>
-                  <li *ngIf="mission.links?.wikipedia">
-                    <a [href]="mission.links.wikipedia" target="_blank"
-                      >Wikipedia</a
-                    >
-                  </li>
-                  <li *ngIf="mission.links?.video_link">
-                    <a [href]="mission.links.video_link" target="_blank"
-                      >Video</a
-                    >
-                  </li>
-                </ul>
+      <div class="row g-3">
+        <div class="col-xl-4 col-md-6 col-12" *ngFor="let mission of launches">
+          <a
+            [routerLink]="['/mission', mission.flight_number]"
+            class="text-decoration-none text-dark"
+          >
+            <div class="card h-100 shadow-sm text-center hover-zoom">
+              <img
+                [src]="mission.links?.mission_patch_small"
+                alt="Mission Patch"
+                class="card-img-top p-3"
+                style="max-height: 200px; object-fit: contain"
+              />
+              <div class="card-body text-start">
+                <h5 class="card-title mb-4">{{ mission.mission_name }}</h5>
+                <p class="mb-1">
+                  <strong>Rocket:</strong> {{ mission.rocket?.rocket_name }} ({{
+                    mission.rocket?.rocket_type
+                  }})
+                </p>
+                <p class="mb-1">
+                  <strong>Flight #:</strong> {{ mission.flight_number }}
+                </p>
+                <p class="mb-1">
+                  <strong>Year:</strong> {{ mission.launch_year }}
+                </p>
+                <p class="mb-2">
+                  <strong>Details:</strong>
+                  {{ mission.details || "No details available." }}
+                </p>
+                <div>
+                  <strong>Links:</strong>
+                  <ul class="list-unstyled mb-0">
+                    <li *ngIf="mission.links?.article_link">
+                      <a [href]="mission.links.article_link" target="_blank"
+                        >Article</a
+                      >
+                    </li>
+                    <li *ngIf="mission.links?.wikipedia">
+                      <a [href]="mission.links.wikipedia" target="_blank"
+                        >Wikipedia</a
+                      >
+                    </li>
+                    <li *ngIf="mission.links?.video_link">
+                      <a [href]="mission.links.video_link" target="_blank"
+                        >Video</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { SpacexService } from '../../services/spacex.service';
 import { MissionfilterComponent } from '../missionfilter/missionfilter.component';
 
 @Component({
   selector: 'app-missionlist',
   standalone: true,
-  imports: [CommonModule, MissionfilterComponent],
+  imports: [CommonModule, MissionfilterComponent, RouterModule],
   templateUrl: './missionlist.component.html',
   styleUrls: ['./missionlist.component.css'],
 })

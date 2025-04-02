@@ -1,1 +1,60 @@
-<p>missiondetails works!</p>
+<div class="container my-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">SpaceX Mission Details</h2>
+    <button class="btn btn-outline-primary" (click)="goBack()">
+      ← Back to Mission List
+    </button>
+  </div>
+
+  <div class="row bg-light rounded p-4 mt-3 shadow-sm" *ngIf="mission">
+    <div class="col-md-4 text-center">
+      <img
+        [src]="mission.links?.mission_patch_small"
+        class="img-fluid"
+        style="max-height: 250px"
+        alt="Mission Patch"
+      />
+    </div>
+
+    <div class="col-md-8">
+      <h4 class="text-danger">Mission - {{ mission.mission_name }}</h4>
+      <p><strong>Name:</strong> {{ mission.mission_name }}</p>
+      <p><strong>Launch Year:</strong> {{ mission.launch_year }}</p>
+
+      <h5 class="text-danger">Rocket</h5>
+      <p><strong>Name:</strong> {{ mission.rocket?.rocket_name }}</p>
+      <p><strong>Type:</strong> {{ mission.rocket?.rocket_type }}</p>
+
+      <h5 class="text-danger">Launch Site</h5>
+      <p><strong>Name:</strong> {{ mission.launch_site?.site_name_long }}</p>
+
+      <h5 class="text-danger">Launch Details</h5>
+      <p>{{ mission.details || "No details available." }}</p>
+
+      <h5 class="text-danger">More Info on Launch Details</h5>
+      <div class="d-flex gap-3">
+        <a
+          *ngIf="mission.links?.article_link"
+          [href]="mission.links.article_link"
+          target="_blank"
+          class="btn btn-outline-secondary btn-sm"
+          >Article</a
+        >
+        <a
+          *ngIf="mission.links?.wikipedia"
+          [href]="mission.links.wikipedia"
+          target="_blank"
+          class="btn btn-outline-secondary btn-sm"
+          >Wikipedia</a
+        >
+        <a
+          *ngIf="mission.links?.video_link"
+          [href]="mission.links.video_link"
+          target="_blank"
+          class="btn btn-outline-secondary btn-sm"
+          >Video</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
